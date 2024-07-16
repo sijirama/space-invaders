@@ -11,7 +11,7 @@ class Obstacle {
     void Draw();
     std::vector<Block> blocks;
     Vector2 position;
-    vector<vector<int>> grid;
+    static vector<vector<int>> grid;
 
   private:
 };

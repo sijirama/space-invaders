@@ -2,7 +2,7 @@
 #include <raylib.h>
 #include "spaceship.hpp"
 
-Game::Game() {}
+Game::Game() { obstacles = CreateObstacles(); }
 
 Game::~Game() {}
 
@@ -19,6 +19,10 @@ void Game::Draw() {
 
     for (auto& laser : spaceship.lasers) {
         laser.Draw();
+    }
+
+    for (auto& obstacle : obstacles) {
+        obstacle.Draw();
     }
 }
 
@@ -39,4 +43,15 @@ void Game::DeleteInactiveLasers() {
             ++it;
         }
     }
+}
+
+std::vector<Obstacle> Game::CreateObstacles() {
+    auto obstacleWidth = Obstacle::grid[0].size();
+    float gap = (GetScreenWidth() - (obstacleWidth * 4)) / 5.0;
+    for (int i = 0; i < 4; ++i) {
+        float offsetX = (i + 1) * gap + 1 * obstacleWidth;
+        obstacles.push_back(
+            Obstacle({offsetX, float(GetScreenHeight() - 100)}));
+    }
+    return obstacles;
 }
