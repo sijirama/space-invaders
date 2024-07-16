@@ -1,6 +1,5 @@
 #include "spaceship.hpp"
 #include <raylib.h>
-#include <iostream>
 
 Spaceship::Spaceship() {
     jump = 7;
@@ -36,7 +35,6 @@ void Spaceship::MoveRight() {
 
 void Spaceship::FireLaser() {
     if (GetTime() - lastFireTime >= 0.35) {
-        std::cout << GetTime() << std::endl;
         Laser laser = Laser({position.x + image.width / 2 - 2, position.y}, -7);
         lasers.emplace_back(laser);
         lastFireTime = GetTime();
