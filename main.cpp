@@ -2,8 +2,8 @@
 #include "src/game.hpp"
 
 int main() {
-    const int screenWidth = 800;
-    const int screenHeight = 600;
+    const int screenWidth = 750;
+    const int screenHeight = 800;
 
     Color grey = Color{29, 29, 27, 255};
 
