@@ -23,3 +23,11 @@ void Laser::Update() {
         }
     };
 }
+
+Rectangle Laser::getRect() {
+    return {postion.x, postion.y, 4, 15};
+    //     if (active) {
+    // } else {
+    //     return {postion.x, postion.y, 0, 0};
+    // }
+}

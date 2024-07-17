@@ -2,6 +2,7 @@
 #include <vector>
 #include "alien.hpp"
 #include "laser.hpp"
+#include "mysteryship.hpp"
 #include "obstacle.hpp"
 #include "spaceship.hpp"
 
@@ -28,4 +29,7 @@ class Game {
     void AlienShootLasers();
     constexpr static float alienShootLaserInterval = 0.35;
     float timeLastAlienFired;
+    MysteryShip mysteryship;
+    float mysteryShipSpawnInterval;
+    float timeLastSpawn;
 };
