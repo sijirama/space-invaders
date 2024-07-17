@@ -69,9 +69,20 @@ std::vector<Alien> Game::CreateAliens() {
 
     for (int row = 0; row < 5; ++row) {
         for (int column = 0; column < 11; ++column) {
+
+            int alientype;
+
+            if (row == 0) {
+                alientype = 3;
+            } else if (row <= 2) {
+                alientype = 2;
+            } else {
+                alientype = 1;
+            }
+
             float x = 75 + column * 55;
             float y = 110 + row * 55;
-            aliens.push_back(Alien(1, {x, y}));
+            aliens.push_back(Alien(alientype, {x, y}));
         }
     }
 

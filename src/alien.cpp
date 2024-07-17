@@ -1,28 +1,32 @@
 #include "alien.hpp"
 #include <raylib.h>
 
+Texture2D Alien::alienImages[3] = {};
+
 Alien::Alien(int type, Vector2 position) {
     this->type = type;
     this->position = position;
 
-    switch (type) {
-    case 1:
-        image = LoadTexture("graphics/alien_1.png");
-        break;
-    case 2:
-        image = LoadTexture("graphics/alien_2.png");
-        break;
-    case 3:
-        image = LoadTexture("graphics/alien_3.png");
-        break;
-    default:
-        image = LoadTexture("graphics/alien_1.png");
-        break;
+    if (alienImages[type - 1].id == 0) {
+        switch (type) {
+        case 1:
+            alienImages[0] = LoadTexture("graphics/alien_1.png");
+            break;
+        case 2:
+            alienImages[1] = LoadTexture("graphics/alien_2.png");
+            break;
+        case 3:
+            alienImages[2] = LoadTexture("graphics/alien_3.png");
+            break;
+        default:
+            alienImages[0] = LoadTexture("graphics/alien_1.png");
+            break;
+        }
     }
 }
 
 void Alien::Draw() {
-    DrawTextureV(image, position, WHITE);
+    DrawTextureV(alienImages[type - 1], position, WHITE);
     ;
 }
 

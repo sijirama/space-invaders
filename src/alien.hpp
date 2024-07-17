@@ -6,7 +6,8 @@ class Alien {
   public:
     Alien(int type, Vector2 position);
 
-    Texture2D image;
+    // Texture2D image;
+    static Texture2D alienImages[3];
     int type;
     Vector2 position;
 
